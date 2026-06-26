@@ -1,7 +1,7 @@
 # S/MIME Email Test Suite
 
 驗證「以 S/MIME 數位簽章(及加密)寄送郵件」的 Java 測試工具。  
-技術堆疊:**javax.mail + BouncyCastle 1.70**(對應專案 `pom.xml`),JDK 21、Maven、Git Bash。
+技術堆疊:**javax.mail + BouncyCastle 1.70**(對應專案 `pom.xml`),JDK 11 以上(建議 17 / 21 LTS)、Maven、Git Bash。
 
 提供三支測試腳本,由淺到深。**三支皆可獨立執行,不用管先後順序**——keystore 不存在時會自動用 `keytool` 產生:
 
@@ -17,9 +17,25 @@
 
 ## 1. 前置需求
 
-- JDK 21(內含 `keytool`)、Maven 3.9+、Git Bash(Windows)
+- JDK 11 以上(建議 17 / 21 LTS;內含 `keytool`)、Maven 3.9+、Git Bash(Windows)
 - 首次執行任一腳本會自動把相依套件抓到 `./lib/`(`mvn dependency:copy-dependencies`)
 - 憑證由腳本用 `keytool` 自動產生,無需手動安裝 openssl
+
+### 1.1 安裝 Maven(Windows)
+
+需先有 **JDK 11 以上**(建議 17 / 21 LTS)。Maven 用 Chocolatey 安裝即可(系統管理員 PowerShell):
+
+```powershell
+choco install maven -y
+```
+
+開新終端機後驗證:
+
+```
+mvn -v
+```
+
+看到 Maven 版本與 `Java version` 即代表成功,之後直接執行下方三支 `.sh` 腳本測試。
 
 ---
 
