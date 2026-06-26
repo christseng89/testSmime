@@ -1,0 +1,24 @@
+# Secrets / credentials — never commit
+.env
+.env.bank
+
+# Generated certificates / keystores
+smime-test-certs/
+bank-certs/
+*.p12
+*.pfx
+*.key
+*.crt
+*.cer
+*.pem
+*.csr
+*.srl
+
+# Build output
+lib/
+target/
+*.class
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
